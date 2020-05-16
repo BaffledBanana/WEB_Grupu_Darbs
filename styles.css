@@ -62,3 +62,12 @@ body{
     background: linear-gradient(0deg, rgba(253,45,245,1) 0%, rgba(117,34,195,1) 100%);
     cursor: pointer;
 }
+
+.Credits{
+    font-family: 'Caviar';
+    padding-top: 15%;
+    margin: auto;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 1vw;
+}
