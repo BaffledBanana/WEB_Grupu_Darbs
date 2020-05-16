@@ -4,7 +4,7 @@
 }
 
 body{
-    background-color: #37373b;
+    background-color: #404046;
 }
 
 .question{
@@ -13,5 +13,7 @@ body{
     vertical-align: middle;
     margin: auto;
     color: white;
-    font-size: 2.5vw;
+    font-size: 1.5vw;
+    width: 100%;
+    height: auto;
 }
