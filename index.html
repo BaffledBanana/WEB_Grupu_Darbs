@@ -10,40 +10,86 @@
 
     <body>
 
-        <div class="header">
-            <h1>
-                Sveiki! Šis ir tests, lai pārbaudītu Jūsu zināšanas vēsturē. Lūdzu, atbildiet uz sekojošajiem 15 jautājumiem un nospiediet "Apstiprināt" pogu:
-            </h1>
-        </div>
+       <div class="header">
+    <h1>
+        Sveiki! Šis ir tests, lai pārbaudītu Jūsu zināšanas vēsturē. Lūdzu, atbildiet uz sekojošajiem 15 jautājumiem un nospiediet "Apstiprināt" pogu:
+    </h1>
+</div>
 
-        <div style="height: 10%;">
+<div style="height: 10%;">
 
-        </div>
+</div>
 
-        <div class="question">
-            <h1>
-                1.Kura persona uzsāka Otro Pasaules karu 1939.gadā?
-            </h1>
-            <input type="radio" name="q1" value="Ādolfs Hitlers"> <label class="answer">Ādolfs Hitlers</label></input>
-            <input type="radio" name="q1" value="Benito Musolīnī"> <label class="answer">Benito Musolīnī</label></input>
-            <input type="radio" name="q1" value="Vladimirs Ļenins"> <label class="answer">Vladimirs Ļenins</label></input>
-        </div>
-        <div class="question">
-            <h1>
-                2.Something
-            </h1>
-            <input type="radio"/>
-        </div>
+<div class="question">
+    <h1>
+        1.Kura persona uzsāka Otro Pasaules karu 1939.gadā?<label1 id="l1"></label1>
+    </h1>
+    <p style="text-align:center;">   <input type="radio" name="q1" value="Ādolfs Hitlers" id="1.1"> <label class="answer" >Ādolfs Hitlers</label></input>      </p><br>
+    <p style="text-align:center;">   <input type="radio" name="q1" value="Benito Musolīnī" id="1.2"> <label class="answer">Benito Musolīnī</label></input>    </p><br>
+    <p style="text-align:center;">   <input type="radio" name="q1" value="Vladimirs Ļenins" id="1.3"> <label class="answer" >Vladimirs Ļenins</label></input>  </p><br>
+    <p style="text-align:center;">   <input type="radio" name="q1" value="Es nezinu" id="1.4"> <label class="answer" >Es nezinu</label></input>  </p><br>
+</div>
+<div class="question">
+    <h1>
+        <!-- Napoleons Bonaparts -->
+        2.Kurš paradits uz atelā?<label1 id="l2"></label1>
+    </h1>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6e/Napoleon_crop.jpg" alt="Napoleons"><br>
+    <p style="font-size:30px">Vards Uzvards</p><br>
+    <input type="text" id="q2" name="q2">
+</div>
+<div class="question">
+    <h1>
+        3.Kada gadā kolumbs atklāja Ameriku?<label1 id="l3"></label1>
+    </h1>
 
-        <div class="footer">
-            <button class="SubmitButton" type="button" onclick="Submit()">Apstiprināt</button>
+<select id="q3">
+    <option value="1387">1387.</option>
+    <option value="1492">1492.</option>
+    <option value="1501">1501.</option>
+</select> gadā
+</div>
 
-            <p class="Credits">
-                Testu izstrādāja 2020.gadā: <br>
-                Rolands Laucis 181RDB204 12.grupa<br>
-                Ņikita Kapšulis <br>
-            </p>
-        </div>
+<div class="question">
+    <h1>
+        4. izvēlēties divus seno grieķu dievus<label1 id="l4"></label1>
+    </h1>
+    <label class="answer" >
+        <input type="checkbox"  class="messageCheckbox" value="1">Zevs
+    </label>
+<br>
+    <label class="answer">
+        <input type="checkbox" class="messageCheckbox" value="2">Amons
+    </label>
+    <br>
+    <label class="answer">
+        <input type="checkbox" class="messageCheckbox" value="3">Anubis
+    </label>
+    <br>
+    <label class="answer">
+        <input type="checkbox" class="messageCheckbox" value="4">Atēna
+    </label>
+
+</div>
+<div class="question">
+    <h1>
+        5. Vai Bizantija bija Rietumu vai Austrumu Romas impērijas sastāvdaļa?<label1 id="l5"></label1>
+    </h1>
+    <p style="text-align:center;">   <input type="radio" name="q5" value="Rietumu" id="5.1"> <label class="answer">Rietumu</label></input>      </p><br>
+    <p style="text-align:center;">   <input type="radio" name="q5" value="Austrumu" id="5.2"> <label class="answer">Austrumu</label></input>    </p><br>
+    <p style="text-align:center;">   <input type="radio" name="q5" value="Es nezinu" id="5.3"> <label class="answer">Es nezinu</label></input>  </p><br>
+
+</div>
+
+<div class="footer">
+    <button class="SubmitButton" type="button" onclick="Submit()">Apstiprināt</button>
+
+    <p class="Credits">
+        Testu izstrādāja 2020.gadā: <br>
+        Rolands Laucis 181RDB204 12.grupa<br>
+        Ņikita Kapšulis <br>
+    </p>
+</div>
 
     </body>
 </html>

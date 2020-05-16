@@ -1,73 +1,102 @@
-@font-face{
-    font-family: "Caviar";
-    src: url("Fonts/CaviarDreams.ttf");
-}
+ @font-face{
+            font-family: "Caviar";
+            src: url("Fonts/CaviarDreams.ttf");
+        }
 
-@font-face{
-    font-family: "Caviar Bold";
-    src: url("Fonts/CaviarDreams_Bold.ttf");
-}
+        @font-face{
+            font-family: "Caviar Bold";
+            src: url("Fonts/CaviarDreams_Bold.ttf");
+        }
 
-body{
-    background-color: #404046;
-}
+        body{
+            background-color: #404046;
+        }
+        img{
+            border:1px;
+            margin:auto;
+            width:300px;
+            height:300px;
+        }
 
-.header{
-    font-family: 'Caviar';
-    text-align: center;
-    vertical-align: middle;
-    padding-top: 5%;
-    margin: auto;
-    color: white;
-    font-size: 1.5vw;
-    width: 80%;
-    height: auto;
-}
+        .header{
+            font-family: 'Caviar';
+            text-align: center;
+            vertical-align: middle;
+            padding-top: 5%;
+            margin: auto;
+            color: white;
+            font-size: 1.5vw;
+            width: 80%;
+            height: auto;
+        }
 
-.question{
-    font-family: 'Caviar';
-    text-align: center;
-    vertical-align: middle;
-    margin: auto;
-    color: white;
-    font-size: 1vw;
-    width: 100%;
-    height: auto;
-}
+        .question{
+            font-family: 'Caviar';
+            text-align: center;
+            vertical-align: middle;
+            margin: auto;
+            color: white;
+            font-size: 1vw;
+            width: 100%;
+            height: auto;
+        }
 
-.answer{
-    color: white;
-    font-size: 2vw;
-}
+        .answer{
+            color: white;
+            font-size: 2vw;
+        }
 
-.footer{
-    font-family: 'Caviar';
-    padding-top: 5%;
-    margin: auto;
-    text-align: center;
-    vertical-align: middle;
-}
+        .footer{
+            font-family: 'Caviar';
+            padding-top: 5%;
+            margin: auto;
+            text-align: center;
+            vertical-align: middle;
+        }
 
-.SubmitButton {
-    /*background-color: rgb(147, 29, 194);  */
-    border: 2px solid #609;
-    border-radius: 15px 50px 30px;
-    width: 300px;
-    height: 60px;
-    font-family: 'Caviar Bold';
-    font-size: 1vw;
-    background: linear-gradient(0deg, rgba(117,34,195,1) 0%, rgba(253,45,245,1) 100%);
-}
-.SubmitButton:hover {
-    background: linear-gradient(0deg, rgba(253,45,245,1) 0%, rgba(117,34,195,1) 100%);
-    cursor: pointer;
-}
+        .SubmitButton {
+            /*background-color: rgb(147, 29, 194);  */
+            border: 2px solid #609;
+            border-radius: 15px 50px 30px;
+            width: 300px;
+            height: 60px;
+            font-family: 'Caviar Bold';
+            font-size: 1vw;
+            background: linear-gradient(0deg, rgba(117,34,195,1) 0%, rgba(253,45,245,1) 100%);
+        }
+        .SubmitButton:hover {
+            background: linear-gradient(0deg, rgba(253,45,245,1) 0%, rgba(117,34,195,1) 100%);
+            cursor: pointer;
+        }
 
-.Credits{
-    font-family: 'Caviar';
-    padding-top: 15%;
-    margin: auto;
-    text-align: center;
-    vertical-align: middle;
-    font-size: 1vw;
-}
+        .Credits{
+            font-family: 'Caviar';
+            padding-top: 15%;
+            margin: auto;
+            text-align: center;
+            vertical-align: middle;
+            font-size: 1vw;
+        }
+        /* some input properties */
+        input[type=text]{
+            width: 30%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            box-sizing: border-box;
+        }
+        select{
+            height:50px;
+            width:200px;
+            font-size:20px;
+        }
+        input[type=checkbox]{
+            width:20px;
+            height:20px;
+            cursor: pointer;
+        }
+        /* label inline */
+        label {
+            display: inline-block;
+            width: 20%;
+            text-align: left;
+        }​
