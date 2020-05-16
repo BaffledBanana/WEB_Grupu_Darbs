@@ -1,0 +1,17 @@
+@font-face{
+    font-family: "Caviar";
+    src: url("Fonts/CaviarDreams.ttf");
+}
+
+body{
+    background-color: #37373b;
+}
+
+.question{
+    font-family: 'Caviar';
+    text-align: center;
+    vertical-align: middle;
+    margin: auto;
+    color: white;
+    font-size: 2.5vw;
+}
