@@ -1,7 +1,7 @@
 var pareizi = 0
 var nepareizi = 0
 
-//array of all questions. [id, type, answer, label]
+//array of all questions. [id, type, answer, label]. radio [atbilde] - pēc kārtas pareizā. checkbox = visas kastītes, kas jāatzīmē, atdalīts ar ",".
 var questions = [["q1", "radio", "1", "l1"], ["q2","text", "Napoleons Bonaparts", "l2"], ["q3","select", "2", "l3"], ["q4","checkbox", "1,4", "l4"], ["q5","radio", "2", "l5"]]
 
 //helper function to check if an answer is selected. Returns false, if there is no answer
@@ -84,7 +84,11 @@ function CheckAnswer(q, type, answer){
     }
 }
 
+
+//Apstiprināšanas (pārbaudes) poga nospiesta:
 function Submit(){
+
+    //Checks if all questions have an answer
     questions.forEach(el => {
         if(IsAnswered(el[0], el[1]) == false){
             alert("Kādā jautājumā nav atzīmēta atbilde!")
@@ -92,6 +96,7 @@ function Submit(){
         }
     });
 
+    //checks if given answer is correct or incorrect. Pievieno tekstu jautājumam, lai zinātu, vai atbildēts pareizi.
     questions.forEach(el =>{
         if(CheckAnswer(el[0],el[1],el[2]) == true){
             pareizi = pareizi + 1;
