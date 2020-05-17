@@ -58,20 +58,20 @@ if(ans==2){
     document.getElementById('l4').style.color = "red";
 }
 /* Piektais jautajums */
-            if(document.getElementById('5.1').checked || document.getElementById('5.2').checked || document.getElementById('5.3').checked) {
-                if (document.querySelector('input[name="q5"]:checked').value == "Austrumu") {
-                    pareizi += 1;
+if(document.getElementById('5.1').checked || document.getElementById('5.2').checked || document.getElementById('5.3').checked) {
+    if (document.querySelector('input[name="q5"]:checked').value == "Austrumu") {
+        pareizi += 1;
 
-                } else {
-                    nepareizi += 1;
-                    document.getElementById('l5').innerHTML = 'nepareizi';
-                    document.getElementById('l5').style.color = "red";
-                }
-            }else{
-                nepareizi += 1;
-                document.getElementById('l5').innerHTML = 'nepareizi';
-                document.getElementById('l5').style.color = "red";
-            }
+    } else {
+        nepareizi += 1;
+        document.getElementById('l5').innerHTML = 'nepareizi';
+        document.getElementById('l5').style.color = "red";
+    }
+}else{
+    nepareizi += 1;
+    document.getElementById('l5').innerHTML = 'nepareizi';
+    document.getElementById('l5').style.color = "red";
+}
 
 
 
