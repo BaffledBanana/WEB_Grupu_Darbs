@@ -1,9 +1,110 @@
- var pareizi = 0
-        var nepareizi = 0
+var pareizi = 0
+var nepareizi = 0
+
+//array of all questions. [id, type, answer, label]
+var questions = [["q1", "radio", "1", "l1"], ["q2","text", "Napoleons Bonaparts", "l2"], ["q3","select", "2", "l3"], ["q4","checkbox", "1,4", "l4"], ["q5","radio", "2", "l5"]]
+
+//helper function to check if an answer is selected. Returns false, if there is no answer
+function IsAnswered(q, type){
+    if(type == "radio"){
+        var radios = document.getElementsByName(q);
+        radios.forEach(el =>{
+            if(el.checked == true){//at least one radio has been selected, so there is an answer
+                return true;
+            }
+        });
+        return false;
+    }else if(type == "text"){
+        if(document.getElementById(q).value == null){
+            return false;
+        }else{
+            return true;
+        }
+    }else if(type == "select"){
+        return true;
+    }else if(type == "checkbox"){
+        var checkboxes = document.getElementsByName(q);
+        checkboxes.forEach(el => {
+            if(el.checked == true){
+                return true;
+            }
+        });
+        return false;
+    }else{
+        alert("Type name incorrect!")
+    }
+}
+
+//helper function to check if the submited answer is correct. Returns false, if wrong answer
+function CheckAnswer(q, type, answer){
+    if(type == "radio"){
+        var radios = document.getElementsByName(q);
+        if(radios[parseInt(answer) - 1].checked == true){
+            return true;
+        }else{
+            return false;
+        }
+    }else if(type == "text"){
+        if(document.getElementById(q).value == answer){
+            return true;
+        }else{
+            return false;
+        }
+    }else if(type == "select"){
+        var select = document.getElementById("mySelect");
+        if(select.selectedIndex == parseInt(answer - 1)){
+            return true;
+        }else{
+            return false;
+        }
+    }else if(type == "checkbox"){
+        var answers = answer.split(",");
+        var checkboxes = document.getElementsByName(q);
+
+        //check for all checkboxes, that all correct ones are marked and incorrect are not marked
+        checkboxes.forEach(el =>{
+            answers.forEach(ans =>{
+                if(el.value == parseInt(ans)){
+                    if(el.checked == false){//should be checked but isnt - wrong
+                        return false;
+                    }
+                }else{
+                    if(el.checked == true){//shouldnt be checked but is - wrong
+                        return false;
+                    }
+                }
+            })
+        })
+        return true;
+    }else{
+        alert("Type name incorrect!")
+    }
+}
+
+function Submit(){
+    questions.forEach(el => {
+        if(IsAnswered(el[0], el[1]) == false){
+            alert("Kādā jautājumā nav atzīmēta atbilde!")
+            break;
+        }
+    });
+
+    questions.forEach(el =>{
+        if(CheckAnswer(el[0],el[1],el[2]) == true){
+            pareizi = pareizi + 1;
+            document.getElementById(el[4]).innerHTML = 'Pareizi';
+            document.getElementById(el[4]).style.color = "green";
+        }else{
+            nepareizi = nepareizi + 1;
+            document.getElementById(el[4]).innerHTML = 'Nepareizi';
+            document.getElementById(el[4]).style.color = "red";
+        }
+    })
+}
 
 /* Ievadu parbaude (blakus jautajumam rada NEPAREIZES lejblus sarkana krasā)*/
 
-        function Submit(){
+        function SubmitLegacy(){
       /*pirmais jaut. */
             if(document.getElementById('1.1').checked || document.getElementById('1.2').checked || document.getElementById('1.3').checked || document.getElementById('1.4').checked) {
                 if (document.querySelector('input[name="q1"]:checked').value == "Ādolfs Hitlers") {
