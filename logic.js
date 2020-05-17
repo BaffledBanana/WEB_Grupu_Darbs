@@ -3,7 +3,7 @@ var nepareizi = 0
 
 //array of all questions. [id, type, answer, label]. radio [atbilde] - pēc kārtas pareizā. checkbox = visas kastītes, kas jāatzīmē, atdalīts ar ",". 
 var questions = [["q1", "radio", "1", "l1"], ["q2","text", "Napoleons Bonaparts", "l2"], ["q3","select", "2", "l3"], ["q4","checkbox", "1,4", "l4"], ["q5","radio", "2", "l5"], 
-["q6", "number", "1918", "l6"]]
+["q6", "number", "1918", "l6"], ["q7", "radio", "1", "l7"], ["q8", "number", "1920", "l8"]]
 
 //helper function to check if an answer is selected. Returns false, if there is no answer
 function IsAnswered(q, type){
@@ -16,7 +16,7 @@ function IsAnswered(q, type){
         }
         return false;
     }else if(type == "text"){
-        if(document.getElementById(q).value == null){
+        if(document.getElementById(q).value == ""){
             return false;
         }else{
             return true;
@@ -32,7 +32,14 @@ function IsAnswered(q, type){
         }
         return false;
     }else if(type == "number"){
-        if(document.getElementById(q).value == null){
+        if(document.getElementById(q).value == ""){
+            return false;
+        }else{
+            return true;
+        }
+    }else if(type == "image"){
+        var images = document.getElementsByName(q);
+        if(images.selectedIndex == undefined){
             return false;
         }else{
             return true;
@@ -87,10 +94,17 @@ function CheckAnswer(q, type, answer){
         }
         return true;
     }else if(type == "number"){
-        if(document.getElementById(q).value == answer){
-            return false;
-        }else{
+        if(parseInt(document.getElementById(q).value) == parseInt(answer)){
             return true;
+        }else{
+            return false;
+        }
+    }else if(type == "image"){
+        var images = document.getElementsByName(q);
+        if(images.selectedIndex == parseInt(answer - 1)){
+            return true;
+        }else{
+            return false;
         }
     }else{
         alert("Type name incorrect!")
@@ -113,32 +127,41 @@ function Submit(){
         console.error(error);
     } */
     
+    var allAnswered = true;
+
     questions.forEach(el => {
         if(IsAnswered(el[0], el[1]) == false){
-            alert("Kādā jautājumā nav atzīmēta atbilde!")
-            return false;
+            document.getElementById(el[3]).innerHTML = ' - Nav atbildēts!';
+            document.getElementById(el[3]).style.color = "orange";
+            //alert("Kādā jautājumā nav atzīmēta atbilde!")
+            allAnswered = false;
         }
     }); 
 
     //checks if given answer is correct or incorrect. Pievieno tekstu jautājumam, lai zinātu, vai atbildēts pareizi.
     try{
-        questions.forEach(el =>{
-            if(CheckAnswer(el[0],el[1],el[2]) == true){
-                pareizi = pareizi + 1;
-                document.getElementById(el[3]).innerHTML = ' - Pareizi \u2713 ';
-                document.getElementById(el[3]).style.color = "green";
-            }else{
-                nepareizi = nepareizi + 1;
-                document.getElementById(el[3]).innerHTML = ' - Nepareizi X';
-                document.getElementById(el[3]).style.color = "red";
-            }
-        });
+        if(allAnswered){
+            questions.forEach(el =>{
+                if(CheckAnswer(el[0],el[1],el[2]) == true){
+                    pareizi = pareizi + 1;
+                    document.getElementById(el[3]).innerHTML = ' - Pareizi \u2713 ';
+                    document.getElementById(el[3]).style.color = "green";
+                }else{
+                    nepareizi = nepareizi + 1;
+                    document.getElementById(el[3]).innerHTML = ' - Nepareizi X';
+                    document.getElementById(el[3]).style.color = "red";
+                }
+            });
 
-        alert("Pareizi (%): " + Math.round((pareizi * 100)/(pareizi+nepareizi)) + "%")
+            var results = "<br><p class=\'results\'>Jūs atbildējāt "+Math.round((pareizi * 100)/(pareizi+nepareizi))+"% no jautājumiem pareizi!</p>"
+            document.getElementById("footer").insertAdjacentHTML('beforebegin', results);
+        }
 
     }catch(error){
         console.error(error);
     }
+
+    //alert("Pareizi (%): " + Math.round((pareizi * 100)/(pareizi+nepareizi)) + "%")
 }
 
 

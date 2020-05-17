@@ -46,6 +46,25 @@
             font-size: 2vw;
         }
 
+        .inputField{
+            width: 30%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            box-sizing: border-box;
+            margin: auto;
+            text-align: center;
+            border-radius: 15px;
+            border: 2px solid #609;
+        }
+
+        .results{
+            font-family: 'Caviar';
+            text-align: center;
+            vertical-align: middle;
+            font-size: 2vw;
+            color: white;
+        }
+
         .footer{
             font-family: 'Caviar';
             padding-top: 5%;
@@ -83,6 +102,8 @@
             padding: 12px 20px;
             margin: 8px 0;
             box-sizing: border-box;
+            border-radius: 15px;
+            border: 2px solid #609;
         }
         select{
             height:50px;
@@ -99,4 +120,14 @@
             display: inline-block;
             width: 20%;
             text-align: left;
+        }
+
+        input[type=number]::-webkit-inner-spin-button, 
+        input[type=number]::-webkit-outer-spin-button,
+        input[type=time]::-webkit-inner-spin-button, 
+        input[type=time]::-webkit-outer-spin-button { 
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            margin: 0; 
         }
