@@ -1,8 +1,9 @@
 var pareizi = 0
 var nepareizi = 0
 
-//array of all questions. [id, type, answer, label]. radio [atbilde] - pēc kārtas pareizā. checkbox = visas kastītes, kas jāatzīmē, atdalīts ar ",".
-var questions = [["q1", "radio", "1", "l1"], ["q2","text", "Napoleons Bonaparts", "l2"], ["q3","select", "2", "l3"], ["q4","checkbox", "1,4", "l4"], ["q5","radio", "2", "l5"], ["q6", "number", "1918", "l6"]]
+//array of all questions. [id, type, answer, label]. radio [atbilde] - pēc kārtas pareizā. checkbox = visas kastītes, kas jāatzīmē, atdalīts ar ",". 
+var questions = [["q1", "radio", "1", "l1"], ["q2","text", "Napoleons Bonaparts", "l2"], ["q3","select", "2", "l3"], ["q4","checkbox", "1,4", "l4"], ["q5","radio", "2", "l5"], 
+["q6", "number", "1918", "l6"]]
 
 //helper function to check if an answer is selected. Returns false, if there is no answer
 function IsAnswered(q, type){
@@ -31,8 +32,9 @@ function IsAnswered(q, type){
         }
         return false;
     }else if(type == "number"){
-        alert(document.getElementsByName(q).value)
-        if(document.getElementsByName(q) != null){
+        if(document.getElementById(q).value == null){
+            return false;
+        }else{
             return true;
         }
     }else{
@@ -84,6 +86,12 @@ function CheckAnswer(q, type, answer){
             }
         }
         return true;
+    }else if(type == "number"){
+        if(document.getElementById(q).value == answer){
+            return false;
+        }else{
+            return true;
+        }
     }else{
         alert("Type name incorrect!")
     }
@@ -94,33 +102,47 @@ function CheckAnswer(q, type, answer){
 function Submit(){
 
     //Checks if all questions have an answer
-    for(i = 0; i < questions.length; i++){
-        if(IsAnswered(questions[i][0], questions[i][1]) == false){
-            alert("Kādā jautājumā nav atzīmēta atbilde!")
-            return false;
+    /*try{
+        for(i = 0; i < questions.length; i++){
+            if(IsAnswered(questions[i][0], questions[i][1]) == false){
+                alert("Kādā jautājumā nav atzīmēta atbilde!")
+                return false;
+            }
         }
-    }
-    /*
+    }catch(error){
+        console.error(error);
+    } */
+    
     questions.forEach(el => {
         if(IsAnswered(el[0], el[1]) == false){
             alert("Kādā jautājumā nav atzīmēta atbilde!")
             return false;
         }
-    }); */
+    }); 
 
     //checks if given answer is correct or incorrect. Pievieno tekstu jautājumam, lai zinātu, vai atbildēts pareizi.
-    questions.forEach(el =>{
-        if(CheckAnswer(el[0],el[1],el[2]) == true){
-            pareizi = pareizi + 1;
-            document.getElementById(el[3]).innerHTML = ' - Pareizi \u2713 ';
-            document.getElementById(el[3]).style.color = "green";
-        }else{
-            nepareizi = nepareizi + 1;
-            document.getElementById(el[3]).innerHTML = ' - Nepareizi X';
-            document.getElementById(el[3]).style.color = "red";
-        }
-    });
+    try{
+        questions.forEach(el =>{
+            if(CheckAnswer(el[0],el[1],el[2]) == true){
+                pareizi = pareizi + 1;
+                document.getElementById(el[3]).innerHTML = ' - Pareizi \u2713 ';
+                document.getElementById(el[3]).style.color = "green";
+            }else{
+                nepareizi = nepareizi + 1;
+                document.getElementById(el[3]).innerHTML = ' - Nepareizi X';
+                document.getElementById(el[3]).style.color = "red";
+            }
+        });
+
+        alert("Pareizi (%): " + Math.round((pareizi * 100)/(pareizi+nepareizi)) + "%")
+
+    }catch(error){
+        console.error(error);
+    }
 }
+
+
+
 
 /* Ievadu parbaude (blakus jautajumam rada NEPAREIZES lejblus sarkana krasā)*/
 
