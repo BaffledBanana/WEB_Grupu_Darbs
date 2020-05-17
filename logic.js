@@ -8,11 +8,11 @@ var questions = [["q1", "radio", "1", "l1"], ["q2","text", "Napoleons Bonaparts"
 function IsAnswered(q, type){
     if(type == "radio"){
         var radios = document.getElementsByName(q);
-        radios.forEach(el =>{
-            if(el.checked == true){//at least one radio has been selected, so there is an answer
+        for(i = 0; i < radios.length; i++){
+            if(radios[i].checked == true){//at least one radio has been selected, so there is an answer
                 return true;
             }
-        });
+        }
         return false;
     }else if(type == "text"){
         if(document.getElementById(q).value == null){
@@ -24,11 +24,11 @@ function IsAnswered(q, type){
         return true;
     }else if(type == "checkbox"){
         var checkboxes = document.getElementsByName(q);
-        checkboxes.forEach(el => {
-            if(el.checked == true){
+        for(i = 0; i < checkboxes.length; i++){
+            if(checkboxes[i].checked == true){
                 return true;
             }
-        });
+        }
         return false;
     }else{
         alert("Type name incorrect!")
@@ -51,7 +51,7 @@ function CheckAnswer(q, type, answer){
             return false;
         }
     }else if(type == "select"){
-        var select = document.getElementById("mySelect");
+        var select = document.getElementById(q);
         if(select.selectedIndex == parseInt(answer - 1)){
             return true;
         }else{
@@ -61,20 +61,23 @@ function CheckAnswer(q, type, answer){
         var answers = answer.split(",");
         var checkboxes = document.getElementsByName(q);
 
-        //check for all checkboxes, that all correct ones are marked and incorrect are not marked
-        checkboxes.forEach(el =>{
-            answers.forEach(ans =>{
-                if(el.value == parseInt(ans)){
-                    if(el.checked == false){//should be checked but isnt - wrong
+        //check for all checkboxes, that all correct ones are marked and incorrect ones are not marked
+        for(i = 0; i < checkboxes.length; i++){
+            var hasAnswer = false;
+            for(j = 0; j < answers.length; j++){
+                if(checkboxes[i].value == parseInt(answers[j])){//current checkbox is one of the answers
+                    hasAnswer = true;
+                    if(checkboxes[i].checked == false){//should be checked but isnt - wrong
                         return false;
-                    }
-                }else{
-                    if(el.checked == true){//shouldnt be checked but is - wrong
-                        return false;
+                    }else{//should be checked and is - correct, so move on to the next checkbox
+                        break;
                     }
                 }
-            })
-        })
+            }
+            if(hasAnswer == false && checkboxes[i].checked == true){//shouldnt be checked but is - wrong
+                return false;
+            }
+        }
         return true;
     }else{
         alert("Type name incorrect!")
@@ -85,19 +88,19 @@ function Submit(){
     questions.forEach(el => {
         if(IsAnswered(el[0], el[1]) == false){
             alert("Kādā jautājumā nav atzīmēta atbilde!")
-            break;
+            return false;
         }
     });
 
     questions.forEach(el =>{
         if(CheckAnswer(el[0],el[1],el[2]) == true){
             pareizi = pareizi + 1;
-            document.getElementById(el[4]).innerHTML = 'Pareizi';
-            document.getElementById(el[4]).style.color = "green";
+            document.getElementById(el[3]).innerHTML = ' - Pareizi \u2713 ';
+            document.getElementById(el[3]).style.color = "green";
         }else{
             nepareizi = nepareizi + 1;
-            document.getElementById(el[4]).innerHTML = 'Nepareizi';
-            document.getElementById(el[4]).style.color = "red";
+            document.getElementById(el[3]).innerHTML = ' - Nepareizi X';
+            document.getElementById(el[3]).style.color = "red";
         }
     })
 }
