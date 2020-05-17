@@ -9,8 +9,7 @@
     <script src="logic.js"></script>
 
     <body>
-
-       <div class="header">
+<div class="header">
     <h1>
         Sveiki! Šis ir tests, lai pārbaudītu Jūsu zināšanas vēsturē. Lūdzu, atbildiet uz sekojošajiem 15 jautājumiem un nospiediet "Apstiprināt" pogu:
     </h1>
@@ -43,11 +42,11 @@
         3. Kurā gadā Kolumbs atklāja Amēriku?<label1 id="l3"></label1>
     </h1>
 
-<select id="q3">
-    <option value="1387">1387.</option>
-    <option value="1492">1492.</option>
-    <option value="1501">1501.</option>
-</select> gadā
+    <select id="q3">
+        <option value="1387">1387.</option>
+        <option value="1492">1492.</option>
+        <option value="1501">1501.</option>
+    </select> gadā
 </div>
 
 <div class="question">
@@ -57,7 +56,7 @@
     <label class="answer" >
         <input type="checkbox"  class="messageCheckbox" value="1" name="q4">Zevs
     </label>
-<br>
+    <br>
     <label class="answer">
         <input type="checkbox" class="messageCheckbox" value="2" name="q4">Amons
     </label>
@@ -85,30 +84,40 @@
     <h1>
         6. Kurā gadā notika sākās Spāņu gripa?<label1 id="l6"></label1>
     </h1>
-    <label class="answer"><input class="inputField" type="number" id="q6"></label> </input>
+    <label1 class="answer"><input class="inputField" type="number" id="q6" ></label1> </input>
 </div>
 
 <div class="question">
     <h1>
-		7. Kurā attēlā ir redzams Josifs Staļins?<label1 id="l7"></label1>
-	</h1>
+        7. Kurā attēlā ir redzams Vladimirs Ļenins?<label1 id="l7"></label1>
+    </h1>
     <input type="radio" name="q7"/><img src="https://enciklopedija.lv/api/image/original?name=521cbcd6299d-5b17d6bb-cfb1-4c31-87ee-26df80946852.jpg" height="100" width="70"/> </input>
     <br>
-	<input type="radio" name="q7"/><img src="https://img2.spoki.lv/upload/articles/30/305339/images/Adolfs-Hitlers-1dala-2.jpg" height="100" width="70"/></input>
+    <input type="radio" name="q7"/><img src="https://img2.spoki.lv/upload/articles/30/305339/images/Adolfs-Hitlers-1dala-2.jpg" height="100" width="70"/></input>
 </div>
 
 <div class="question">
     <h1>
-		8. Kurā gadā tika pabeigta Latvijas Satversme?<label1 id="l8"></label1>
-	</h1>
-	<input class="inputField" type="number" placeholder="2020" min="1" max="2100" id="q8">
+        8. Kurā gadā tika pabeigta Latvijas Satversme?<label1 id="l8"></label1>
+    </h1>
+    <input class="inputField" type="number" placeholder="2020" min="1" max="2100" id="q8">
 </div>
 
 <div class="question">
-
+<h1>
+    9. Latvijas Republikas proklamēšanas diena?<label1 id="l9"></label1>
+</h1>
+    <input type="date" id="q9" class="answer">
 </div>
 
 <div class="question">
+<h1>
+    10. Kada gada beigas vidusslaiki?<label1 id="l10"></label1>
+</h1>
+    <div class="slidecontainer">
+        <input type="range" min="1400" max="1800" value="1600" class="slider" id="q10" class="answer">
+        <p>Value: <span id="demo"></span></p>
+    </div>
 
 </div>
 
@@ -121,6 +130,8 @@
         Ņikita Kapšulis <br>
     </p>
 </div>
+     
 
     </body>
+<script src="logic1.js"></script>
 </html>
