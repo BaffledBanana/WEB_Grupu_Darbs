@@ -171,7 +171,10 @@
                     document.getElementById(el[3]).style.color = "orange";
                     //alert("Kādā jautājumā nav atzīmēta atbilde!")
                     allAnswered = false;
-                }
+                }else{
+					document.getElementById(el[3]).innerHTML = ' ';
+					
+				}
             });
 
             //checks if given answer is correct or incorrect. Pievieno tekstu jautājumam, lai zinātu, vai atbildēts pareizi.
@@ -191,6 +194,8 @@
 
                     var results = "<br><p class=\'results\'>Jūs atbildējāt "+Math.round((pareizi * 100)/(pareizi+nepareizi))+"% no jautājumiem pareizi!</p>"
                     document.getElementById("footer").insertAdjacentHTML('beforebegin', results);
+					alert(hi);
+					setTimeout(window.location.reload.bind(window.location), 10000);
                 }
 
             }catch(error){
@@ -198,5 +203,5 @@
             }
 
             //alert("Pareizi (%): " + Math.round((pareizi * 100)/(pareizi+nepareizi)) + "%")
-            document.getElementById("subbutton").disabled = true;
+ 
         }
