@@ -7,6 +7,7 @@
 
     <link rel="stylesheet" type="text/css" href="styles.css">
     <script src="logic.js"></script>
+    <script src="dnd.js"></script>
 
     <body>
 <div class="header">
@@ -92,16 +93,32 @@
     <h1>
         7. Kurā attēlā ir redzams Josifs Staļins?<label1 id="l7"></label1>
     </h1>
-    <input type="radio" name="q7"/><img src="https://enciklopedija.lv/api/image/original?name=521cbcd6299d-5b17d6bb-cfb1-4c31-87ee-26df80946852.jpg" height="100" width="70"/> </input>
-    <br>
-    <input type="radio" name="q7"/><img src="https://img2.spoki.lv/upload/articles/30/305339/images/Adolfs-Hitlers-1dala-2.jpg" height="100" width="70"/></input>
+	<input type="image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/CroppedStalin1943.jpg/300px-CroppedStalin1943.jpg" height="230" width="200" onclick="document.getElementById('q7').innerHTML = 1;" value="1"/>
+	<input type="image" src="https://img2.spoki.lv/upload/articles/30/305339/images/Adolfs-Hitlers-1dala-2.jpg" onclick="document.getElementById('q7').innerHTML = 2;" height="230" width="200" value="2"/>
+	<br><span>Izvēlētā bilde: </span><p id = "q7" style="display:inline"></p>
 </div>
 
 <div class="question">
     <h1>
-        8. Kurā gadā tika pabeigta Latvijas Satversme?<label1 id="l8"></label1>
+        8. Pareizi novietojiet cilvēku bildes, pie viņu dzimšanas gadiem<label1 id="l8"></label1>
     </h1>
-    <input class="inputField" type="number" placeholder="2020" min="1" max="2100" id="q8">
+    <div class="q8" id="div1" ondrop="drop(event)" ondragover="allowDrop(event)">
+    <img id="1" src="https://www.president.lv/media/r/150/0/uploads/president/images/7CWx-QiAOceYZMYNVx4whgNpn99ZlGL_.jpg" draggable="true" ondragstart="drag(event)" width="150" height="170"></div>
+    
+    <div class="q8" id="div1" ondrop="drop(event)" ondragover="allowDrop(event)">
+    <img id="0" src="https://www.president.lv/media/r/150/0/uploads/president/images/YFVtrgibYFHs3f7WL6e5Gc5d-mVBDF81.jpg" draggable="true" ondragstart="drag(event)" width="150" height="170"></div>
+    
+    <div class="q8" id="div1" ondrop="drop(event)" ondragover="allowDrop(event)">
+    <img id="3" src="https://www.president.lv/media/r/150/0/uploads/president/images/KiAxM5ZK2SUFDa-fZMVeBEk_uzoGDN2T.jpg" draggable="true" ondragstart="drag(event)" width="150" height="170"></div>
+    
+    <div class="q8" id="div1" ondrop="drop(event)" ondragover="allowDrop(event)">
+    <img id="2" src="https://www.president.lv/media/r/150/0/uploads/president/images/UKLYtT5CP0RxxXnJ-UBVAZI65qqh2h7o.jpg" draggable="true" ondragstart="drag(event)" width="150" height="170"></div>
+    
+    <br>   
+    <div id="div2"><p>1859 - 1927</p></div>
+    <div id="div2"><p>1871 - 1939</p></div>
+    <div id="div2"><p>1881 - 1944</p></div>
+    <div id="div2"><p>1877 - 1942</p></div>
 </div>
 
 <div class="question">

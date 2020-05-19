@@ -178,3 +178,18 @@
             width: 35%;
             text-align: left;
         }
+        #div1 {
+            width:300px;
+            height:300px;
+            padding: 10px;
+            border: 1px solid #aaaaaa;
+            display: inline-block;
+        }
+        #div2 {
+            width: 320px;
+            height: 40px;
+            border: 1px #ffffff;
+            display: inline-block;
+            text-align: center;
+            margin: auto;
+        }

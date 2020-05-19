@@ -3,7 +3,7 @@
 
         //array of all questions. [id, type, answer, label]. radio [atbilde] - pēc kārtas pareizā. checkbox = visas kastītes, kas jāatzīmē, atdalīts ar ",".
         var questions = [["q1", "radio", "1", "l1"], ["q2","text", "Napoleons Bonaparts", "l2"], ["q3","select", "2", "l3"], ["q4","checkbox", "1,4", "l4"], ["q5","radio", "2", "l5"],
-            ["q6", "number", "1918", "l6"], ["q7", "radio", "1", "l7"], ["q8", "number", "1920", "l8"],["q9","date","1918-11-18","l9"],["q10","range","1500","l10"],["q11","radio","1","l11"],
+            ["q6", "number", "1918", "l6"], ["q7", "p", "1", "l7"], ["q8", "dnd", "", "l8"],["q9","date","1918-11-18","l9"],["q10","range","1500","l10"],["q11","radio","1","l11"],
         ["q12", "radio", "2", "l12"], ["q13", "radio", "3", "l13"], ["q14", "number", "95", "l14"], ["q15", "checkbox", "1,2,3,4", "l15"]]
 
         //helper function to check if an answer is selected. Returns false, if there is no answer
@@ -58,6 +58,14 @@
                     }else{
                         return true;
                     }
+                }else if(type=="p"){
+                    if(document.getElementById(q).innerHTML == ""){
+                        return false;
+                    }else{
+                        return true;
+                    }
+                }else if(type=="dnd"){
+                    return true; // vo visur ir attēli
                 }
 
 
@@ -137,6 +145,22 @@
                 } else {
                     return false;
                 }
+            }else if (type == "p") {
+                if (document.getElementById(q).innerHTML == answer) {
+                    return true;
+                } else {
+                    return false;
+                }
+            }else if (type == "dnd"){
+                var elms = document.getElementsByClassName("q8");
+                for(var j = 0; j < elms.length; j++){//nemu katru rami
+                    var divelm = elms[j].getElementsByTagName("*");//visus elementus shaja rami
+                    for (var i = 0; i < divelm.length; i++) {
+                        if(j != divelm[i].id)return false;//uzzinu id
+                    }
+                }
+                return true;
+
             }
 
 
