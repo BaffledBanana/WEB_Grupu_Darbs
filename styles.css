@@ -105,6 +105,9 @@
             border-radius: 15px;
             border: 2px solid #609;
         }
+       input[type=date]{
+            color:black;
+        }
         select{
             height:50px;
             width:200px;
@@ -120,9 +123,6 @@
             display: inline-block;
             width: 20%;
             text-align: left;
-        }
-         input[type=date]{
-           color:black;
         }
 
         input[type=number]::-webkit-inner-spin-button,
@@ -171,4 +171,13 @@
             border-radius: 50%;
             background: #4CAF50;
             cursor: pointer;
+        }
+        #Timer{
+            font-family: "Caviar Bold";
+            src: url("Fonts/CaviarDreams_Bold.ttf");
+            Text-align:center;
+            font-size:4em;
+            color:green;
+            position: relative;
+            bottom:10%;
         }

@@ -1,9 +1,9 @@
-        var pareizi = 0
+             var pareizi = 0
         var nepareizi = 0
 
         //array of all questions. [id, type, answer, label]. radio [atbilde] - pēc kārtas pareizā. checkbox = visas kastītes, kas jāatzīmē, atdalīts ar ",".
         var questions = [["q1", "radio", "1", "l1"], ["q2","text", "Napoleons Bonaparts", "l2"], ["q3","select", "2", "l3"], ["q4","checkbox", "1,4", "l4"], ["q5","radio", "2", "l5"],
-            ["q6", "number", "1918", "l6"], ["q7", "radio", "1", "l7"], ["q8", "number", "1920", "l8"],["q9","date","1918-11-18","l9"],["q10","range","1500","l10"]]
+            ["q6", "number", "1918", "l6"], ["q7", "radio", "1", "l7"], ["q8", "number", "1920", "l8"],["q9","date","1918-11-18","l9"],["q10","range","1500","l10"],["q11","radio","1","l11"]]
 
         //helper function to check if an answer is selected. Returns false, if there is no answer
         function IsAnswered(q, type){
@@ -197,4 +197,5 @@
             }
 
             //alert("Pareizi (%): " + Math.round((pareizi * 100)/(pareizi+nepareizi)) + "%")
+            document.getElementById("subbutton").disabled = true;
         }
