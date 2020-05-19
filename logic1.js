@@ -26,7 +26,6 @@
 
         // Output the result in an element with id="demo"
         document.getElementById("Timer").innerHTML = minutes + "m " + seconds + "s ";
-
         // If the count down is over, write some text
         if (distance < 0) {
             clearInterval(x);
@@ -35,6 +34,6 @@
             location.reload();
         }
     }, 1000);
-    var hi="10 sekundes lai paskatit atbildes";
+    var hi="Tests ir pabeigts";
 
 ///////////////////////////////////////////////////////////////////////////////////

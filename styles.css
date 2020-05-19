@@ -193,3 +193,15 @@
             text-align: center;
             margin: auto;
         }
+		.reset{
+			border: 2px solid #609;
+            border-radius: 15px 50px 30px;
+            width: 200px;
+            height: 60px;
+            font-family: 'Caviar Bold';
+            font-size: 1vw;
+            background: linear-gradient(0deg, rgba(117,34,195,1) 0%, rgba(253,45,245,1) 100%);
+			margin:auto;
+			position:relative;
+			top:20px;
+		}

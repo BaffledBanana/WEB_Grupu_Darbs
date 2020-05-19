@@ -219,8 +219,8 @@
                     var results = "<br><p class=\'results\'>Jūs atbildējāt "+Math.round((pareizi * 100)/(pareizi+nepareizi))+"% no jautājumiem pareizi!</p>"
                     document.getElementById("footer").insertAdjacentHTML('beforebegin', results);
 					alert(hi);
-					setTimeout(window.location.reload.bind(window.location), 10000);
 					document.getElementById("subbutton").disabled = true;
+					clearInterval(x);
                 }
 
             }catch(error){
