@@ -125,15 +125,6 @@
             text-align: left;
         }
 
-        input[type=number]::-webkit-inner-spin-button,
-        input[type=number]::-webkit-outer-spin-button,
-        input[type=time]::-webkit-inner-spin-button,
-        input[type=time]::-webkit-outer-spin-button {
-            -webkit-appearance: none;
-            -moz-appearance: none;
-            appearance: none;
-            margin: 0;
-        }
         .slidecontainer {
             width: 50%;
             margin:auto;
@@ -180,4 +171,10 @@
             color:green;
             position: relative;
             bottom:10%;
+        }
+
+        .checkBoxes{
+            display: inline-block;
+            width: 35%;
+            text-align: left;
         }
