@@ -36,4 +36,7 @@
     }, 1000);
     var hi="Tests ir pabeigts";
 
+    var reloadBtn = document.getElementById("reload");//'Sākt velreiz' poga
+    reloadBtn.style.display = "none";//paslēpt
+
 ///////////////////////////////////////////////////////////////////////////////////

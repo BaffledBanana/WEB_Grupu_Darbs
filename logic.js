@@ -174,7 +174,7 @@
 
         //Apstiprināšanas (pārbaudes) poga nospiesta:
         function Submit(){
-
+            
             //Checks if all questions have an answer
             /*try{
                 for(i = 0; i < questions.length; i++){
@@ -204,6 +204,11 @@
             //checks if given answer is correct or incorrect. Pievieno tekstu jautājumam, lai zinātu, vai atbildēts pareizi.
             try{
                 if(allAnswered){
+                    var submitBtn = document.getElementById("subbutton");//apstiprināt poga
+                    submitBtn.style.display = "none";//paslēpt "apstiprināt" pogu
+                    reloadBtn.style.display = "block";//parādīt "Sākt velreiz"
+                    window.scrollTo(0,0); //patīt uz lapas augšu
+
                     questions.forEach(el =>{
                         if(CheckAnswer(el[0],el[1],el[2]) == true){
                             pareizi = pareizi + 1;
