@@ -196,6 +196,7 @@
                     document.getElementById("footer").insertAdjacentHTML('beforebegin', results);
 					alert(hi);
 					setTimeout(window.location.reload.bind(window.location), 10000);
+					document.getElementById("subbutton").disabled = true;
                 }
 
             }catch(error){
