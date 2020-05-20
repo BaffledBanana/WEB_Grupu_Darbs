@@ -108,6 +108,9 @@
        input[type=date]{
             color:black;
         }
+        input[type=radio]{
+            transform: scale(1.5);
+        }
         select{
             height:50px;
             width:200px;

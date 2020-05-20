@@ -29,9 +29,33 @@
         // If the count down is over, write some text
         if (distance < 0) {
             clearInterval(x);
-            document.getElementById("Timer").innerHTML = "Time is out!";
-            alert("Time is out");
-            location.reload();
+            document.getElementById("Timer").innerHTML = "Laiks beidzās!";
+            alert("Laiks beidzās");
+
+
+            var submitBtn = document.getElementById("subbutton");//apstiprināt poga
+            submitBtn.style.display = "none";//paslēpt "apstiprināt" pogu
+            reloadBtn.style.display = "block";//parādīt "Sākt velreiz"
+            window.scrollTo(0,0); //patīt uz lapas augšu
+
+            questions.forEach(el =>{
+                if(CheckAnswer(el[0],el[1],el[2]) == true){
+                    pareizi = pareizi + 1;
+                    document.getElementById(el[3]).innerHTML = ' - Pareizi \u2713 ';
+                    document.getElementById(el[3]).style.color = "green";
+                }else{
+                    nepareizi = nepareizi + 1;
+                    document.getElementById(el[3]).innerHTML = ' - Nepareizi X';
+                    document.getElementById(el[3]).style.color = "red";
+                }
+            });
+
+            var results = "<br><p class=\'results\'>Jūs atbildējāt "+Math.round((pareizi * 100)/(pareizi+nepareizi))+"% no jautājumiem pareizi!</p>"
+            document.getElementById("footer").insertAdjacentHTML('beforebegin', results);
+            alert(hi);
+            document.getElementById("subbutton").disabled = true;
+            clearInterval(x);
+            //location.reload();
         }
     }, 1000);
     var hi="Tests ir pabeigts";
